@@ -151,52 +151,46 @@ class _FormData extends State<HomePage> {
                     ],
                   ),
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: RadioListTile(
-                        contentPadding: EdgeInsets.only(left: 10, bottom: 30),
-                        title: Text(
-                          'Laki - Laki',
-                          style: TextStyle(
-                            fontSize: 17,
-                          ),
-                        ),
-                        value: 'male',
-                        groupValue: gender,
-                        toggleable: true,
-                        dense: true,
-                        onChanged: (value) {
-                          setState(() {
-                            gender = value.toString();
-                          });
-                        },
+                Container(
+                  margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                  padding:
+                      EdgeInsets.only(left: 20, right: 20, top: 4, bottom: 4),
+                  height: 54,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.grey[200],
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
                       ),
-                    ),
-                    SizedBox(
-                      width: 5.0,
-                    ),
-                    Expanded(
-                      child: RadioListTile(
-                        contentPadding: EdgeInsets.only(bottom: 30),
-                        title: Text(
-                          'Perempuan',
-                          style: TextStyle(
-                            fontSize: 17,
-                          ),
-                        ),
-                        value: 'female',
-                        groupValue: gender,
-                        toggleable: true,
-                        dense: true,
-                        onChanged: (value) {
-                          setState(() {
-                            gender = value.toString();
-                          });
-                        },
+                    ],
+                  ),
+                  child: DropdownButton(
+                    isExpanded: true,
+                    underline: SizedBox(),
+                    hint: Text('Jenis Kelamin'),
+                    items: [
+                      DropdownMenuItem(
+                        child: Text('Laki - Laki'),
+                        value: "Laki - Laki",
                       ),
-                    ),
-                  ],
+                      DropdownMenuItem(
+                        child: Text('Perempuan'),
+                        value: "Perempuan",
+                      ),
+                    ],
+                    onChanged: (value) {
+                      setState(() {
+                        gender = value.toString();
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Row(
                   children: [
